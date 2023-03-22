@@ -21,7 +21,7 @@ app.post('/', async (req, res) => {
     gpt
       .addMessage(`${message}`)
       // Give some instructions to the AI
-      .addRule("Don't give answers. Also, do not specify marks.");
+     // .addRule("Don't give answers. Also, do not specify marks. You are required togive the number of questions as given by the user. Don't give extra number of questions. If the user asks formultiple chapters, the total number of questions must remain constant.");
 
     // Get the response from ChatGPT.
     const response = await gpt.ask();
