@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import './App.css';
+import { ImSpinner3 } from "react-icons/im";
+
 
 function App() {
   const [subject, setSubject] = useState('');
   const [chapter, setChapter] = useState('');
-  const [shortQuestions, setShortQuestions] = useState(0);
-  const [longQuestions, setLongQuestions] = useState(0);
-  const [veryShortQuestions, setVeryShortQuestions] = useState(0);
-  const [veryLongQuestions, setVeryLongQuestions] = useState(0);
+  const [shortQuestions, setShortQuestions] = useState('');
+  const [longQuestions, setLongQuestions] = useState('');
+  const [veryShortQuestions, setVeryShortQuestions] = useState('');
+  const [veryLongQuestions, setVeryLongQuestions] = useState('');
   const [std, setStd] = useState('');
   const [level, setLevel] = useState('');
   const [response, setResponse] = useState('');
@@ -30,7 +33,7 @@ function App() {
 
   return (
     <>
-      <div className="App container my-5">
+      {/* <div className="App container my-5">
         <form onSubmit={handleSubmit}>
           <div className='mb-3'>
             <label className="form-label">
@@ -91,7 +94,7 @@ function App() {
               Number of very short questions:
               <input
                 className="form-control"
-                type="number"
+                type="text"
                 value={veryShortQuestions}
                 onChange={(e) => setVeryShortQuestions(e.target.value)}
               />
@@ -103,7 +106,7 @@ function App() {
               Number of short questions:
               <input
                 className="form-control"
-                type="number"
+                type="text"
                 value={shortQuestions}
                 onChange={(e) => setShortQuestions(e.target.value)}
               />
@@ -115,7 +118,7 @@ function App() {
               Number of long questions:
               <input
                 className="form-control"
-                type="number"
+                type="text"
                 value={longQuestions}
                 onChange={(e) => setLongQuestions(e.target.value)}
               />
@@ -127,7 +130,7 @@ function App() {
               Number of very long questions:
               <input
                 className="form-control"
-                type="number"
+                type="text"
                 value={veryLongQuestions}
                 onChange={(e) => setVeryLongQuestions(e.target.value)}
               />
@@ -146,7 +149,162 @@ function App() {
 
         </div>
 
+      </div> */}
+
+
+
+
+
+
+      <div className="container">
+        <div className="row">
+          <div className="booking-form">
+            <form>
+
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <span className="form-label">Class</span>
+                    <input className="form-control" type="text" placeholder="Enter Class"
+                      value={std}
+                      onChange={(e) => setStd(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <span className="form-label">Subject</span>
+                    <input className="form-control" type="text" placeholder="Enter Subject"
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-3">
+                  <div className="form-group">
+                    <span className="form-label">Chapter</span>
+                    <input className="form-control" placeholder='Enter Chapter'
+                      type="text"
+                      value={chapter}
+                      onChange={(e) => setChapter(e.target.value)}
+                      required />
+                  </div>
+                </div>
+
+                <div className="col-md-3">
+                  <div className="row">
+                    <div className="col-12 col-sm-6 mb-0">
+                      <div className="form-group">
+                        <span className="form-label">No. of very short questions</span>
+                        <input className="form-control" placeholder='Enter No. of very short questions'
+                          type="text"
+                          value={veryShortQuestions}
+                          onChange={(e) => setVeryShortQuestions(e.target.value)}
+                          required />
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="col-md-3">
+                  <div className="row">
+                    <div className="col-12 col-sm-6 mb-0">
+                      <div className="form-group">
+                        <span className="form-label">Level:</span>
+                        <select className="form-control"
+                          type="text"
+                          value={level}
+                          onChange={(e) => setLevel(e.target.value)}
+                          required >
+                          <option value="">--Please choose an option--</option>
+                          <option value="easy">Easy</option>
+                          <option value="medium">Medium</option>
+                          <option value="tough">Tough</option>
+                          <option value="complex">Complex</option>
+
+                        </select>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="col-md-2">
+                  <div className="form-group">
+                    <span className="form-label">No. of short questions</span>
+                    <input className="form-control" placeholder='Enter No. of short questions'
+                      type="text"
+                      value={shortQuestions}
+                      onChange={(e) => setShortQuestions(e.target.value)}
+                      required />
+                    <span className="select-arrow"></span>
+                  </div>
+                </div>
+                <div className="col-md-2">
+                  <div className="form-group">
+                    <span className="form-label">No. of long questions</span>
+                    <input className="form-control" placeholder='Enter No. of long questions'
+                      type="text"
+                      value={longQuestions}
+                      onChange={(e) => setLongQuestions(e.target.value)}
+                      required />
+                    <span className="select-arrow"></span>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-3">
+                  <div className="form-group">
+                    <span className="form-label">No. of very long questions</span>
+                    <input className="form-control" placeholder='Enter No. of very long questions'
+                      type="text"
+                      value={veryLongQuestions}
+                      onChange={(e) => setVeryLongQuestions(e.target.value)}
+                      required />
+                    <span className="select-arrow"></span>
+                  </div>
+                </div>
+                <div className="col-md-3">
+                  <div className="form-btn">
+                    <button className="submit-btn" type='submit' onClick={handleSubmit}>Generate Questions</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <div className='container results-section'>
+
+              {loading &&
+                <>
+                  <div className="my-3" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <ImSpinner3 />
+                  </div>
+                  <div className="my-3" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    This may take a while...
+                  </div>
+                </>}
+              {!loading && response &&
+                <>
+                  <h3 className="my-3">Generated Paper:</h3>
+                  <pre className="text-justify" style={{ 'whiteSpace': 'pre-wrap' }}>
+                    {response}
+                  </pre>
+                </>}
+
+            </div>
+          </div>
+        </div>
       </div>
+
+
+
+
+
     </>
   );
 }
