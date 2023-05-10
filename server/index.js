@@ -1,7 +1,7 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import cors from 'cors'
-import EasyGpt from "easygpt"
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const EasyGpt = require('easygpt');
 
 const gpt = new EasyGpt();
 
@@ -52,7 +52,7 @@ const PORT = process.env.PORT || 8000;
 
 if ( process.env.NODE_ENV == "production"){
     app.use(express.static("../client/build"));
-    import * as path from 'path';
+    const path = require('path');
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, "..", 'client', 'build', 'index.html'));
     })
