@@ -19,7 +19,7 @@ function App() {
     e.preventDefault();
     setLoading(true)
     const message = `create total of ${veryShortQuestions} ${level} level very short problems, ${shortQuestions} ${level} level short problems, ${longQuestions} ${level} level long problems and ${veryLongQuestions} ${level}level very long problems of 5 mark from ${chapter} chapters of ${subject} for class ${std} by making headings of very short, short questions, long and very long questions respectively as well as answer of that questioons as per cbse syllabus. Don't write topics.`;
-    const res = await fetch('http://localhost:5500/', {
+    const res = await fetch('/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
