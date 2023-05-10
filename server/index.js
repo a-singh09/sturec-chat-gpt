@@ -1,7 +1,9 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const EasyGpt = require('easygpt');
+import express from 'express'
+import dotenv from 'dotenv'
+import cors from 'cors'
+import EasyGpt from "easygpt"
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
 
 const gpt = new EasyGpt();
 
@@ -50,12 +52,12 @@ app.post('/', async (req, res) => {
 
 const PORT = process.env.PORT || 8000;
 
-if ( process.env.NODE_ENV == "production"){
-    app.use(express.static("../client/build"));
-    const path = require('path');
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "..", 'client', 'build', 'index.html'));
-    })
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(resolve(dirname(fileURLToPath(import.meta.url)), '..', 'client', 'build')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(resolve(dirname(fileURLToPath(import.meta.url)), '..', 'client', 'build', 'index.html'));
+  });
 }
 
 app.listen(PORT, () => {
