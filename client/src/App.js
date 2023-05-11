@@ -14,11 +14,12 @@ function App() {
   const [level, setLevel] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
+  const [additionalReq, setAdditionalReq] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true)
-    const message = `create total of ${veryShortQuestions} ${level} level very short problems, ${shortQuestions} ${level} level short problems, ${longQuestions} ${level} level long problems and ${veryLongQuestions} ${level}level very long problems of 5 mark from ${chapter} chapters of ${subject} for class ${std} by making headings of very short, short questions, long and very long questions respectively as well as answer of that questioons as per cbse syllabus. Don't write topics.`;
+    const message = `create total of ${veryShortQuestions} ${level} level very short problems, ${shortQuestions} ${level} level short problems, ${longQuestions} ${level} level long problems and ${veryLongQuestions} ${level}level very long problems of 5 mark from ${chapter} chapters of ${subject} for class ${std} by making headings of very short, short questions, long and very long questions respectively as per cbse syllabus. Don't write topics.  Optional additional requirements: ${additionalReq}`;
     const res = await fetch('/', {
       method: 'POST',
       headers: {
@@ -294,7 +295,18 @@ function App() {
                   <pre className="text-justify" style={{ 'whiteSpace': 'pre-wrap' }}>
                     {response}
                   </pre>
-                </>}
+                </>
+                <textarea className="form-control" placeholder='Not satisfied? Provide your additional requirements here.'
+                      rows="3"
+                      type="text"
+                      value={additionalReq}
+                      onChange={(e) => setAdditionalReq(e.target.value)} />
+                  <div className="col-md-3">
+                  <div className="form-btn">
+                    <button className="submit-btn" type='submit' onClick={handleSubmit}>Regenerate Responses</button>
+                  </div>
+                </div>
+              }
 
             </div>
           </div>
