@@ -295,7 +295,7 @@ function App() {
                   <pre className="text-justify" style={{ 'whiteSpace': 'pre-wrap' }}>
                     {response}
                   </pre>
-                </>
+                
                 <textarea className="form-control" placeholder='Not satisfied? Provide your additional requirements here.'
                       rows="3"
                       type="text"
@@ -306,6 +306,7 @@ function App() {
                     <button className="submit-btn" type='submit' onClick={handleSubmit}>Regenerate Responses</button>
                   </div>
                 </div>
+              </>
               }
 
             </div>
