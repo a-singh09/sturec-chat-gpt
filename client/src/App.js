@@ -157,7 +157,7 @@ function App() {
 
 
 
-      <div className="container">
+<div className="container">
         <div className="row">
           <div className="booking-form">
             <form>
@@ -270,6 +270,18 @@ function App() {
                     <span className="select-arrow"></span>
                   </div>
                 </div>
+                <div className="col-md-2">
+                  <div className="form-group">
+                    <span className="form-label">Additional Requirements</span>
+                    <textarea className="form-control" placeholder='Not satisfied? Provide your additional requirements here.'
+                      rows="3"
+                      type="text"
+                      value={additionalReq}
+                      onChange={(e) => setAdditionalReq(e.target.value)}
+                      required />
+                    <span className="select-arrow"></span>
+                  </div>
+                </div>
                 <div className="col-md-3">
                   <div className="form-btn">
                     <button className="submit-btn" type='submit' onClick={handleSubmit}>Generate Questions</button>
@@ -295,18 +307,10 @@ function App() {
                   <pre className="text-justify" style={{ 'whiteSpace': 'pre-wrap' }}>
                     {response}
                   </pre>
-                
-                <textarea className="form-control" placeholder='Not satisfied? Provide your additional requirements here.'
-                      rows="3"
-                      type="text"
-                      value={additionalReq}
-                      onChange={(e) => setAdditionalReq(e.target.value)} />
-                  <div className="col-md-3">
-                  <div className="form-btn">
-                    <button className="submit-btn" type='submit' onClick={handleSubmit}>Regenerate Responses</button>
-                  </div>
-                </div>
-              </>
+
+
+
+                </>
               }
 
             </div>
@@ -323,3 +327,4 @@ function App() {
 }
 
 export default App;
+
